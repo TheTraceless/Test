@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 导入约束 -->
+<!DOCTYPE configuration  
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  <properties resource="jdbcConfig.properties"> </properties>
+  	<!-- 配置mybatis环境 -->
+  	<environments default="mysql">
+  	<!--  配置mysql环境-->
+  	<environment id="mysql">
+  		<!--配置事务的控制方法  -->
+  		<transactionManager type="JDBC"></transactionManager>
+  		<!--配置连接数据库的必备信息  -->
+  		<!--type属性表示是否使用连接池（又叫数据源）  -->
+  		<dataSource type="POOLED">
+  			<property name="driver" value="${jdbc.driver}"/>
+  			<property name="url" value="${jdbc.url}"/>
+  			<property name="username" value="${jdbc.username}"/>
+  			<property name="password" value="${jdbc.password}"/>
+  		</dataSource>
+  	</environment>
+  	</environments>
+  	<mappers>
+  		<package name="com.itheima.dao"/>
+  	</mappers>
+  </configuration>
